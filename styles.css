@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: white;
+  }
+  
+  h2, h3 {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  img {
+    vertical-align: middle;
+  }
