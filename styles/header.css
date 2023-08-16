@@ -1,0 +1,103 @@
+.header {
+    height: 55px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  
+    background-color: rgb(46, 46, 46);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(28, 28, 28);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+  
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu {
+    height: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  
+.middle-section {
+    flex: 1;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.header-name {
+    font-size: 20px;
+    color: rgb(155, 155, 155);
+    font-weight: 500;
+}
+
+.right-section {
+    width: 180px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* this happens */
+    flex-shrink: 0;
+}
+
+.share-button,
+.english-button,
+.greek-button {
+    height: 45px;
+    width: 45px;
+    background: none;
+    border: none;
+    color: bisque;
+    position: relative;
+    display: flex;
+    justify-content: center; /* this also happens */
+    align-items: center;
+}
+
+.share-button:hover,
+.english-button:hover,
+.greek-button:hover {
+    cursor: pointer;
+    /*background-color: rgb(82, 82, 82);*/
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.share-button .tooltip,
+.english-button .tooltip,
+.greek-button .tooltip {
+    position: absolute;
+    background-color: rgb(118, 118, 118);
+    color: rgb(255, 255, 255);
+    padding: 4px 8px 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    bottom: -30px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.share-button:hover .tooltip,
+.english-button:hover .tooltip,
+.greek-button:hover .tooltip {
+    opacity: 1
+}
