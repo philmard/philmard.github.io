@@ -1,5 +1,5 @@
 .introduction {
-    background-color: #464646;
+    background-color: bisque;
     border-radius: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -14,7 +14,7 @@
 .about-me {
     padding-top: 0;
     padding-bottom: 0;
-    color: rgb(190, 190, 190);
+    color: rgb(143, 143, 143);
     margin-top: 0px;
     margin-bottom: 0px;
     
@@ -47,7 +47,7 @@
 .title-description {
     margin-top: 10px;
     margin-bottom: 0px;
-    color: rgb(190, 190, 190);
+    color: rgb(116, 116, 116);
     font-size: 18px;
 }
 
@@ -61,7 +61,7 @@
 .small-resume {
     margin-top: 15px;
     margin-bottom: 0px;
-    color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
 }
 
 .programming-languages-title {
