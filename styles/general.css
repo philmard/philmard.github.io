@@ -1,18 +1,38 @@
 body {
   padding-top: 80px;
   padding-bottom: 100px;
-  background-color:rgb(234, 221, 192);
+  background-color: rgb(218, 218, 218);
   color: rgb(0, 0, 0);
   font-family: Roboto, Arial;
   text-align: center;
-  }
-  
-  a {
-    color: rgb(138, 138, 138);
-  }
+}
 
-  p {
-    margin-top: 0;
-    margin-bottom: 0;
+a {
+  color: rgb(138, 138, 138);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
   }
-  
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
+}
