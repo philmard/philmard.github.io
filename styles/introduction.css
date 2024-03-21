@@ -1,88 +1,87 @@
 .introduction {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-    text-align: left;
-    margin: 100px 100px 100px 100px;
-    
+  background-color: rgba(255, 255, 255, 0.251);
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  margin: 100px 100px 100px 100px;
 }
 
 .about-me {
-    padding-top: 0;
-    padding-bottom: 0;
-    color: rgb(143, 143, 143);
-    margin-top: 0px;
-    margin-bottom: 0px;
-    
+  padding-top: 0;
+  padding-bottom: 0;
+  color: rgb(143, 143, 143);
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .name-image {
-    margin-top: 30px;
-    /*display: flex;
+  margin-top: 30px;
+  /*display: flex;
     flex-direction: row;*/
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .title-name {
-    margin-top: 10px;
-    margin-bottom: 0px;
-    font-weight: 450;
-    font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-weight: 450;
+  font-size: 30px;
 }
 
 .introduction-img {
-    width: 200px;
-    height: 200px;
-    object-fit: scale-down;
-    object-position: center;
-    border-radius: 100px;
-    object-position: center;
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
+  object-position: center;
+  border-radius: 100px;
+  object-position: center;
 }
 
 .title-description {
-    margin-top: 10px;
-    margin-bottom: 0px;
-    color: rgb(116, 116, 116);
-    font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: rgb(116, 116, 116);
+  font-size: 18px;
 }
 
 .age {
-    margin-top: 5px;
-    margin-bottom: 0px;
-    color: rgb(130, 130, 130);
-    font-style: italic;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: rgb(130, 130, 130);
+  font-style: italic;
 }
 
 .small-resume {
-    margin-top: 15px;
-    margin-bottom: 0px;
-    color: rgb(0, 0, 0);
+  margin-top: 15px;
+  margin-bottom: 0px;
+  color: rgb(0, 0, 0);
 }
 
 .programming-languages-title {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
-.programming-languages-imgs { /*test flex*/
-    /*width: 180px;*/
-    margin-top: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    /*justify-content: space-between;*/
-    /*flex-shrink: 0;*/
+.programming-languages-imgs {
+  /*test flex*/
+  /*width: 180px;*/
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+  /*flex-shrink: 0;*/
 }
 
 .foreign-languages-title {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .foreign-languages-text {
-    margin-top: 20px;
+  margin-top: 20px;
 }
