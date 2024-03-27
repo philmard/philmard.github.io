@@ -1,6 +1,6 @@
 body {
   padding-top: 80px;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
   background-color: rgb(218, 218, 218);
   color: rgb(0, 0, 0);
   font-family: Roboto, Arial;
@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: rgb(138, 138, 138);
+  color: rgb(42, 42, 42);
 }
 
 p {
@@ -36,8 +36,3 @@ p {
     height: 100%;
   }
 }
-
-/* small test comment */
-/* small test comment 2*/
-/* small test comment 3*/
-/* small test comment 4*/

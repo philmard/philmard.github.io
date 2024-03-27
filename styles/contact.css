@@ -1,33 +1,32 @@
 .contact {
-    margin: 100px 100px 100px 100px;
+  margin: 200px 100px 100px 100px;
 }
 
 .contact-row {
-    margin-top: 30px;
-    /*display: flex;
+  margin-top: 30px;
+  /*display: flex;
     flex-direction: row;*/
-    display: grid;
-    grid-template-columns: 100px 1fr;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 
 .contact-title {
-    margin-top: 0px;
-    
+  margin-top: 0px;
 }
 
 .contact-img {
-    width: 100px;
-    height: 100px;
-    object-fit: scale-down;
-    object-position: center;
-    border-radius: 100px;
-    /*margin-bottom: 50px;*/
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down;
+  object-position: center;
+  border-radius: 100px;
+  /*margin-bottom: 50px;*/
 }
 
 .mail-link {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .contact-svgs {
-    margin-top: 10px;
+  margin-top: 10px;
 }
