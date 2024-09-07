@@ -48,19 +48,19 @@ export default function Home() {
           </a>
 
           <a
-            href="https://github.com/philmard/FlarpyBlorb"
+            href="https://github.com/ntua-el20166/softeng-2023"
             className={styles.card}
           >
-            <h3>Flarpy Blorb</h3>
-            <p>A Game very similar to Flappy Bird created in Unity.</p>
+            <h3>Ntuaflix</h3>
+            <p>A Software Application designed to navigate Movie and Series Data.</p>
           </a>
 
           <a
-            href="https://github.com/philmard/FlarpyBlorb"
+            href="https://github.com/ntua/saas2024-49"
             className={styles.card}
           >
-            <h3>Flarpy Blorb</h3>
-            <p>A Game very similar to Flappy Bird created in Unity.</p>
+            <h3>SolveMe</h3>
+            <p>A SaaS Application that provides computational resources.</p>
           </a>
         </div>
       </main>
