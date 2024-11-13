@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fmard | Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <!-- Favicon Image (icon) -->
+      <img src="favicon.ico" alt="Favicon" class="favicon" />
+      <h1>Filippos Marntirosian</h1>
+      <p>
+        Welcome to my personal website! Here, I share my projects and a bit
+        about myself.
+      </p>
+      <!-- Dark Mode Toggle Button -->
+      <button class="toggle-btn" onclick="toggleDarkMode()">
+        Toggle Dark Mode
+      </button>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <!-- Container for fetched repositories -->
+      <div id="repo-container">
+        <!-- JavaScript will inject repository details here -->
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer>
+      <h2>Contact Me</h2>
+      <p>
+        Email:
+        <a href="mailto:philipmardir@gmail.com">philipmardir@gmail.com</a>
+      </p>
+      <p>
+        GitHub: <a href="https://github.com/philmard">github.com/philmard</a>
+      </p>
+    </footer>
+    <script src="scripts/dark-mode-toggle.js"></script>
+    <script src="scripts/fetch-repos.js"></script>
+    <!-- New script for fetching repositories -->
+  </body>
+</html>

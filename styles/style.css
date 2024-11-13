@@ -1,0 +1,132 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+/* Light mode (default) styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  color: #ddd;
+  background-color: #121212;
+}
+
+body.dark-mode header h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #f1f1f1;
+}
+
+body.dark-mode .project {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode footer a {
+  color: #bbb;
+}
+
+body.dark-mode a {
+  color: #bbb;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body.dark-mode .toggle-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+header p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+/* Projects section styles */
+#projects {
+  margin-bottom: 20px;
+}
+
+#projects h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #5e5e5e;
+}
+
+.project {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.project p {
+  color: #666;
+}
+
+.project a {
+  color: #333;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+footer p {
+  font-size: 1em;
+  color: #666;
+}
+
+footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
