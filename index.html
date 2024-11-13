@@ -5,46 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fmard | Portfolio</title>
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="scripts/scroll-carousel.js"></script>
+    <script src="scripts/fetch-repos.js"></script>
+    <script src="scripts/header-footer.js" defer></script>
   </head>
   <body>
-    <!-- Header Section -->
-    <header>
-      <!-- Favicon Image (icon) -->
-      <img src="favicon.ico" alt="Favicon" class="favicon" />
-      <h1>Filippos Marntirosian</h1>
-      <p>
-        Welcome to my personal website! Here, I share my projects and a bit
-        about myself.
-      </p>
-      <!-- Dark Mode Toggle Button -->
-      <button class="toggle-btn" onclick="toggleDarkMode()">
-        Toggle Dark Mode
-      </button>
-    </header>
+    <div id="header-container"></div>
+    <!-- Header will be injected here -->
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <!-- Container for fetched repositories -->
-      <div id="repo-container">
-        <!-- JavaScript will inject repository details here -->
-      </div>
-    </section>
+    <!-- div "content" here, so that it takes at least 100% of page height (so that footer is at bottom) -->
+    <div id="content">
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <!-- Container for fetched repositories -->
+        <div id="repo-container">
+          <!-- JavaScript will inject repository details here -->
+        </div>
+      </section>
 
+      <!-- Other Activities Section -->
+      <section id="other-activities">
+        <h2>Other Activities</h2>
+        <div class="carousel-container">
+          <!-- Left Arrow Button -->
+          <button class="carousel-btn left" onclick="scrollCarousel(-1)">
+            &#10094;
+          </button>
+          <!-- Container for hardcoded activities -->
+          <div id="activity-container">
+            <div class="activity">
+              <h3>Rubik's Cube</h3>
+              <p>
+                Attended various Rubik's Cube competitions in Greece! (came 5th
+                place twice) Unofficial PB: 7.20 seconds
+              </p>
+              <p><a href="activities/rubiks-cube.html">Read More</a></p>
+            </div>
+            <div class="activity">
+              <h3>League of Legends</h3>
+              <p>
+                Peaked top 0.01% (Challenger) in famous team-based video game!
+                (Season 11)
+              </p>
+              <p><a href="activities/league.html">Read More</a></p>
+            </div>
+            <div class="activity">
+              <h3>Medium</h3>
+              <p>Wrote some posts on Medium on various topics.</p>
+              <p><a href="activities/medium.html">Read More</a></p>
+            </div>
+            <div class="activity">
+              <h3>Typeracer</h3>
+              <p>Rank (WPM percentile): 96.1% in Typeracer!</p>
+              <p><a href="#" target="_blank">Read More</a></p>
+            </div>
+            <div class="activity">
+              <h3>Activity 3</h3>
+              <p>Description of activity 3.</p>
+              <p><a href="#" target="_blank">Read More</a></p>
+            </div>
+            <div class="activity">
+              <h3>Activity 3</h3>
+              <p>Description of activity 3.</p>
+              <p><a href="#" target="_blank">Read More</a></p>
+            </div>
+            <!-- Add more activities as needed -->
+          </div>
+          <!-- Right Arrow Button -->
+          <button class="carousel-btn right" onclick="scrollCarousel(1)">
+            &#10095;
+          </button>
+        </div>
+      </section>
+    </div>
     <!-- Contact Section -->
-    <footer>
-      <h2>Contact Me</h2>
-      <p>
-        Email:
-        <a href="mailto:philipmardir@gmail.com">philipmardir@gmail.com</a>
-      </p>
-      <p>
-        GitHub: <a href="https://github.com/philmard">github.com/philmard</a>
-      </p>
-    </footer>
+    <div id="footer-container"></div>
+    <!-- Footer will be injected here -->
     <script src="scripts/dark-mode-toggle.js"></script>
-    <script src="scripts/fetch-repos.js"></script>
     <!-- New script for fetching repositories -->
   </body>
 </html>

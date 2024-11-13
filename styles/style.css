@@ -7,12 +7,29 @@
 
 /* Body styles */
 /* Light mode (default) styles */
+
 body {
+  min-height: 100vh; /* body -> 100vh -> Ensures footer is at the bottom */
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
-  padding: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body a {
+  color: #333;
+}
+
+/* Main content area (everything above the footer) */
+#content {
+  flex-grow: 1;
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
 
 /* Dark mode styles */
@@ -33,6 +50,27 @@ body.dark-mode .project {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
+body.dark-mode .project:hover {
+  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .activity {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .activity:hover {
+  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling for dark mode */
+body.dark-mode img {
+  filter: brightness(0.9); /* Dimming level of imgs */
+}
+
 body.dark-mode footer a {
   color: #bbb;
 }
@@ -44,18 +82,34 @@ body.dark-mode a {
 /* Toggle Button */
 .toggle-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   padding: 8px 12px;
   background-color: #333;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1000; /* high z, so that it stays on top of images */
 }
-body.dark-mode .toggle-btn {
+body.dark-mode .toggle-btn,
+body.dark-mode .home-btn {
   background-color: #ddd;
   color: #333;
+}
+
+/* Home Button (+ ^^ for dark mode) */
+.home-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; /* high z, so that it stays on top of images */
 }
 
 /* Header styles */
@@ -75,6 +129,12 @@ header p {
 }
 
 /* Projects section styles */
+
+.repo-link {
+  text-decoration: none; /* Remove the underline */
+  display: block; /* Ensure the link fills the div */
+}
+
 #projects {
   margin-bottom: 20px;
 }
@@ -93,6 +153,11 @@ header p {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.project:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .project h3 {
   font-size: 1.4em;
   color: #333;
@@ -104,6 +169,85 @@ header p {
 
 .project a {
   color: #333;
+}
+
+/* Other Activities section styles */
+#other-activities {
+  margin-bottom: 20px;
+}
+
+#other-activities h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #5e5e5e;
+}
+
+.carousel-container {
+  position: relative; /* Required for positioning buttons */
+  display: flex;
+  align-items: center;
+}
+
+#activity-container {
+  display: flex; /* Align the activities in a row */
+  gap: 20px; /* Space between activities */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding-bottom: 10px; /* Space for scroll */
+}
+
+.activity {
+  background: #fff;
+  padding: 15px;
+  min-width: 250px; /* Minimum width for each activity */
+  max-width: 300px; /* Optional: maximum width */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.activity:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.activity h3 {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.activity p {
+  color: #666;
+}
+
+.activity a {
+  color: #333;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.carousel-btn.left {
+  left: -40px;
+}
+
+.carousel-btn.right {
+  right: -40px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Footer styles */
