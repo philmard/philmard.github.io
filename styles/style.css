@@ -81,9 +81,9 @@ body.dark-mode a {
 
 /* Toggle Button */
 .toggle-btn {
-  position: fixed;
-  top: 10px;
-  right: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   padding: 8px 12px;
   background-color: #333;
   color: #fff;
@@ -91,6 +91,10 @@ body.dark-mode a {
   border-radius: 5px;
   cursor: pointer;
   z-index: 1000; /* high z, so that it stays on top of images */
+  max-width: 35px;
+  display: flex; /* Center content inside */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 body.dark-mode .toggle-btn,
 body.dark-mode .home-btn {
@@ -100,9 +104,9 @@ body.dark-mode .home-btn {
 
 /* Home Button (+ ^^ for dark mode) */
 .home-btn {
-  position: fixed;
-  top: 10px;
-  left: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   padding: 8px 12px;
   background-color: #333;
   color: #fff;
@@ -273,4 +277,96 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Container for the images */
+.image-container {
+  display: flex;
+  justify-content: space-between; /* Optional: Adds spacing between columns */
+  width: 100%; /* Full width of the page */
+}
+
+/* Each column */
+.column {
+  flex: 1; /* Each column takes up equal width */
+  padding: 10px; /* Optional: Adds some spacing around the images */
+}
+
+/* Images styling */
+.column img {
+  width: 100%; /* Make image take full width of the column */
+  height: auto; /* Keep image aspect ratio */
+  border-radius: 8px; /* Optional: Rounded corners */
+  max-width: 400px;
+}
+
+/* CSS for the Medium Posts */
+
+#medium-posts {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Style for each post */
+.post {
+  width: 70%;
+  max-width: 500px;
+  height: 300px; /* Set a fixed height */
+  background-size: cover; /* Make sure the background image covers the div */
+  background-position: center; /* Center the background image */
+  padding: 20px;
+  color: white;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Move text to the top */
+  text-align: center; /* Center the text */
+  position: relative; /* Needed for positioning the <a> tag */
+  transition: transform 0.1s ease; /* Add transition for smooth scaling */
+}
+
+/* Hover effect to make the post a bit bigger */
+.post:hover {
+  transform: scale(1.05); /* Increase the size by 5% on hover */
+}
+
+/* Make sure the <a> tag inside the .post div has no underline */
+.post a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Make the link text white */
+  position: absolute; /* Position it over the entire .post */
+  top: 10;
+  left: 0;
+  width: 100%; /* Ensure the <a> tag takes up the whole post div */
+  height: 100%; /* Ensure the <a> tag takes up the whole post div */
+  display: flex; /* Use flexbox to center the text */
+  flex-direction: column;
+  justify-content: flex-start; /* Position text at the bottom */
+  padding: 20px;
+}
+
+/* Remove any extra margin/padding inside the <a> tag */
+.post a h3,
+.post a p {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* Responsive design: adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .post {
+    width: 90%; /* Reduce width on smaller screens */
+    height: 250px; /* Make the height smaller for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    width: 100%; /* Full width on extremely small screens */
+    height: 200px; /* Further reduce height */
+  }
 }
