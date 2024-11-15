@@ -199,6 +199,12 @@ header p {
   padding-bottom: 10px; /* Space for scroll */
 }
 
+.activity-link {
+  text-decoration: none; /* Remove default link underline */
+  display: block; /* Makes the entire link area clickable */
+  width: 100%; /* Ensure it spans the full container width */
+}
+
 .activity {
   background: #fff;
   padding: 15px;
@@ -207,11 +213,25 @@ header p {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex-shrink: 0; /* Prevent items from shrinking */
+  /* Make the .activity a flex container */
+  display: flex;
+  flex-direction: column; /* Stack children (image, h3, p) vertically */
+  height: 100%;
 }
 
 .activity:hover {
   background-color: #f1f1f1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Align the image to the center */
+.activity img {
+  display: block;
+  margin: 10px auto 10px; /* Center the image and add margin below */
+  width: 250px; /* Set a fixed width */
+  height: 250px; /* Set a fixed height */
+  object-fit: cover; /* Crop the image to fill the box */
+  border-radius: 5px;
 }
 
 .activity h3 {
@@ -221,6 +241,12 @@ header p {
 
 .activity p {
   color: #666;
+}
+
+/* Make the last <p> tag push content to the bottom */
+.activity p:last-child {
+  margin-top: auto; /* Push this paragraph to the bottom */
+  text-decoration: underline; /* Underline the 'Click to Read More' text */
 }
 
 .activity a {
