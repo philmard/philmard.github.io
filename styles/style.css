@@ -15,7 +15,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #f4f4f4;
+  background-color: #faf9f6;
   padding-left: 80px;
   padding-right: 80px;
   padding-top: 20px;
@@ -380,6 +380,95 @@ footer a:hover {
   margin: 0;
   padding: 0;
   font-size: 1em;
+}
+
+/* CSS for Goodreads Page */
+
+/* Container for each book */
+.book {
+  display: flex; /* Align elements in a row */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 1rem; /* Space between rows */
+  border: 0.05px solid #7a7a7a; /* Optional: border for separation */
+  padding: 10px;
+  border-radius: 5px; /* Optional: rounded corners */
+  width: 100%; /* Ensures full width of parent container */
+}
+
+/* Styling for the book link */
+.book-link {
+  display: flex;
+  flex-direction: row; /* Ensure elements inside link are in a row */
+  text-decoration: none;
+  color: inherit; /* Inherit the color to keep it neutral */
+  width: 100%; /* Ensure the link takes up the full width of the .book */
+}
+
+/* Image inside the book link */
+.book-image {
+  width: 50px; /* Fixed width for the image */
+  height: 80px; /* Fixed height for the image */
+  object-fit: contain; /* Preserve aspect ratio without stretching */
+  margin-right: 1rem; /* Space between image and text */
+  border-radius: 5px; /* Optional: rounded image corners */
+}
+
+/* Title and Author container */
+.book-link p {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-size: 1rem; /* Adjust font size as needed */
+  margin-right: 0.5rem; /* Space between row elements */
+}
+
+/* Title of the book */
+.book-link p.book-title {
+  font-weight: bold; /* Make the title bold */
+  flex-grow: 0; /* Do not allow the title to grow */
+  flex-shrink: 0; /* Do not allow the title to shrink */
+  width: 60%; /* Title should take 60% of the available width */
+  white-space: normal; /* Allow the title to wrap normally onto multiple lines */
+  overflow: hidden; /* Hide the overflow if the title goes beyond the container */
+  text-overflow: ellipsis; /* Show ellipsis if the title overflows */
+}
+
+/* Author's name */
+.book-link p.book-author {
+  flex-grow: 1; /* Allow the author's name to take up remaining space */
+  font-style: italic; /* Optional: italicize the author name */
+  text-align: center;
+}
+
+/* Average Rating container */
+.average-rating {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column; /* Stack rating number and progress bar vertically */
+  /*justify-content: center;*/
+  align-items: flex-start; /* Align the contents to the left */
+  margin-left: 1rem; /* Space between the book image and the rating */
+}
+
+/* Rating number */
+.rating-number {
+  font-size: 1rem; /* Set the font size for the numeric rating */
+  margin-bottom: 0.5rem; /* Space between the number and the progress bar */
+}
+
+/* Progress bar container */
+.progress-bar-container {
+  width: 100%; /* Full width of the container */
+  background-color: #ddd; /* Light gray background for the progress bar */
+  height: 8px; /* Set the height of the progress bar */
+  border-radius: 5px; /* Rounded corners for the progress bar */
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 100%; /* Ensure the progress bar takes full height of its container */
+  background-color: orange; /* Orange color for the filled portion of the bar */
+  border-radius: 5px; /* Rounded corners */
+  transition: width 0.3s ease; /* Smooth transition for the width change */
 }
 
 /* Responsive design: adjust layout for smaller screens */

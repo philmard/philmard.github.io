@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fmard | Books</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <script src="../scripts/header-footer.js" defer></script>
+    <script src="../scripts/dark-mode-toggle.js"></script>
+    <script src="../scripts/fetch-goodreads.js"></script>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <!-- Header will be injected here -->
+
+    <!-- div "content" here, so that it takes at least 100% of page height -->
+    <div id="content">
+      <section id="goodreads">
+        <h2>Goodreads</h2>
+        <p>
+          (I'm fetching the below information from the
+          <a
+            href="https://www.goodreads.com/user/show/180241574-filippos-marntirosian"
+            target="_blank"
+            >Goodreads</a
+          >
+          website.)
+        </p>
+        <p style="margin-top: 20px; font-weight: bold">The Books I've read:</p>
+        <div id="read-books"></div>
+        <p style="margin-top: 40px; font-weight: bold">
+          The Books I'm currently reading:
+        </p>
+        <div id="currently-reading-books"></div>
+      </section>
+    </div>
+
+    <div id="footer-container"></div>
+    <!-- Footer will be injected here -->
+  </body>
+</html>
