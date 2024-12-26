@@ -471,6 +471,65 @@ footer a:hover {
   transition: width 0.3s ease; /* Smooth transition for the width change */
 }
 
+/* CSS for IMDb titles */
+
+/* Movie list container */
+#imdb-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for individual movie items */
+.movie-item {
+  /* background-color: #a600ff36; */
+  /* opacity: 0.6; */
+  border: 1px solid #ddd;
+  padding: 15px;
+  /* margin: 10px; */
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Movie item hover effect */
+.movie-item:hover {
+  transform: scale(1.01);
+}
+
+/* The clickable movie div */
+.movie-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Styling for each movie detail */
+.imdb-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* background-color: purple; */
+}
+
+/* Styling for rows in the movie list */
+.imdb-title,
+.imdb-title-type,
+.imdb-year,
+.imdb-rating,
+.imdb-genres,
+.imdb-your-rating,
+.imdb-directors {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+
+.imdb-title {
+  font-weight: bold;
+}
+
+/*.imdb-your-rating {
+}*/
+
 /* Responsive design: adjust layout for smaller screens */
 @media (max-width: 768px) {
   .post {

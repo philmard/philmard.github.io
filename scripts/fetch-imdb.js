@@ -1,147 +1,86 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // IMDb ratings URL
-  const imdbUrl =
-    "https://www.imdb.com/user/ur89250642/ratings/?sort=top_rated%2Cdesc";
+// Function to fetch and display IMDb ratings data from the CSV file hosted on GitHub
+function fetchAndDisplayIMDBData() {
+  // Raw GitHub URL to the CSV file
+  const csvUrl =
+    "https://raw.githubusercontent.com/philmard/philmard.github.io/refs/heads/main/data/imdb/imdb.csv";
 
-  // Container to hold the IMDb titles
-  const imdbContainer = document.getElementById("imdb-titles");
-
-  // Check if the container exists
-  if (!imdbContainer) {
-    console.error("Error: IMDb container not found");
-    return;
-  }
-
-  // Fetch the IMDb page HTML
-  fetch(imdbUrl)
+  // Fetch the CSV file
+  fetch(csvUrl)
     .then((response) => response.text())
-    .then((htmlText) => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlText, "text/html");
+    .then((csvText) => {
+      // Parse the CSV text using PapaParse
+      Papa.parse(csvText, {
+        header: true, // Use the first row as header
+        skipEmptyLines: true, // Skip empty lines
+        complete: function (results) {
+          // The parsed data is available in results.data
+          const data = results.data;
 
-      // Extract movie details from the page
-      const titleElements = doc.querySelectorAll("div.lister-item");
+          // Sort the data by "Your Rating" in descending order
+          data.sort((a, b) => b["Your Rating"] - a["Your Rating"]);
 
-      // Check if there are any movie elements
-      if (titleElements.length === 0) {
-        imdbContainer.innerHTML =
-          "<p>No ratings found. Please check the IMDb URL.</p>";
-        return;
-      }
-
-      let outputHtml = "";
-
-      // Loop through the movie elements and extract necessary details
-      titleElements.forEach((element) => {
-        const titleElement = element.querySelector(".lister-item-header a");
-        const yearElement = element.querySelector(".lister-item-year");
-        const ratingElement = element.querySelector(".ipl-rating-star__rating");
-        const posterElement = element.querySelector(".lister-item-image img");
-        const plotElement = element.querySelector(".lister-item-summary");
-
-        const title = titleElement
-          ? titleElement.textContent.trim()
-          : "Unknown Title";
-        const year = yearElement
-          ? yearElement.textContent.trim()
-          : "Unknown Year";
-        const imdbRating = ratingElement
-          ? ratingElement.textContent.trim()
-          : "N/A";
-        const posterUrl = posterElement ? posterElement.src : "";
-        const plot = plotElement
-          ? plotElement.textContent.trim()
-          : "No description available.";
-
-        // Append the extracted data to the output HTML
-        outputHtml += `
-            <div class="imdb-title">
-              <img src="${posterUrl}" alt="${title}" class="imdb-poster" />
-              <div class="imdb-details">
-                <h3>${title} (${year})</h3>
-                <p><strong>IMDb Rating:</strong> ${imdbRating}</p>
-                <p><strong>Plot:</strong> ${plot}</p>
-              </div>
-            </div>
-          `;
+          // Display the sorted data in the HTML
+          displayIMDBData(data);
+        },
+        error: function (error) {
+          console.error("Error parsing CSV:", error);
+        },
       });
-
-      // Inject the movie details into the container
-      imdbContainer.innerHTML = outputHtml;
     })
     .catch((error) => {
-      console.error("Error fetching IMDb data:", error);
-      imdbContainer.innerHTML = "<p>Error fetching IMDb data.</p>";
+      console.error("Error fetching the CSV file:", error);
     });
-});
-// GraphQL query to get information about the movie "Oppenheimer"
-const query = `
-  {
-    title(id: "tt15398776") {
-      id
-      type
-      primary_title
-      plot
-      genres
-      rating {
-        aggregate_rating
-        votes_count
-      }
-    }
-  }
-`;
-
-// Endpoint for the GraphQL API
-const apiUrl = "https://graph.imdbapi.dev/v1";
-
-// Function to fetch data from the IMDb GraphQL API
-async function fetchIMDbData() {
-  try {
-    // Make the fetch request to the GraphQL API
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query: query }),
-    });
-
-    // Parse the JSON response
-    const data = await response.json();
-
-    // Check if the data has been returned correctly
-    if (data && data.data && data.data.title) {
-      const movie = data.data.title;
-      displayMovieData(movie);
-    } else {
-      console.error("No data found for the movie.");
-      document.getElementById("imdb-titles").innerHTML =
-        "<p>Error: Movie data not found.</p>";
-    }
-  } catch (error) {
-    console.error("Error fetching IMDb data:", error);
-    document.getElementById("imdb-titles").innerHTML =
-      "<p>Error fetching IMDb data.</p>";
-  }
 }
 
-// Function to display movie data in the HTML
-function displayMovieData(movie) {
-  const imdbContainer = document.getElementById("imdb-titles");
+// Function to display the parsed IMDb data inside the #imdb-titles div
+function displayIMDBData(data) {
+  const imdbTitlesDiv = document.getElementById("imdb-titles");
 
-  // Create HTML content for displaying movie info
-  const movieContent = `
-    <h2>${movie.primary_title} (${movie.type})</h2>
-    <p><strong>Plot:</strong> ${movie.plot}</p>
-    <p><strong>Genres:</strong> ${movie.genres.join(", ")}</p>
-    <p><strong>IMDb Rating:</strong> ${
-      movie.rating.aggregate_rating
-    } (Based on ${movie.rating.votes_count} votes)</p>
-  `;
+  // Clear any existing content
+  imdbTitlesDiv.innerHTML = "";
 
-  // Inject the content into the container
-  imdbContainer.innerHTML = movieContent;
+  // Iterate through each movie and create an HTML element for each one
+  data.forEach((item) => {
+    const movieElement = document.createElement("div");
+    movieElement.classList.add("movie-item");
+
+    // Fix genres format to show all and remove extra quote
+    const genres = item.Genres
+      ? item.Genres.split(",")
+          .map((genre) => genre.trim())
+          .join(", ")
+      : "N/A";
+
+    // Create the HTML content for each movie
+    const movieHTML = `
+        <a href="${item.URL}" target="_blank" class="movie-link">
+          <div class="movie-item-content">
+            <p class="imdb-title">${item.Title}</p>
+            <p class="imdb-rating"><strong>IMDb Rating:</strong> ${
+              item["IMDb Rating"]
+            }</p>
+            <p class="imdb-your-rating"><strong>My Rating:</strong> ${
+              item["Your Rating"]
+            }</p>
+            <p class="imdb-title-type"><strong>Title Type:</strong> ${
+              item["Title Type"]
+            }</p>
+            <p class="imdb-year"><strong>Year:</strong> ${item.Year}</p>
+            <p class="imdb-genres"><strong>Genres:</strong> ${genres}</p>
+            <p class="imdb-directors"><strong>Directors:</strong> ${
+              item.Directors ? item.Directors : "N/A"
+            }</p>
+          </div>
+        </a>
+      `;
+
+    // Inject the movie HTML content into the movie element
+    movieElement.innerHTML = movieHTML;
+
+    // Append the movie element to the IMDb titles div
+    imdbTitlesDiv.appendChild(movieElement);
+  });
 }
 
-// Fetch the IMDb data on page load
-document.addEventListener("DOMContentLoaded", fetchIMDbData);
+// Call the function to fetch and display the data
+fetchAndDisplayIMDBData();

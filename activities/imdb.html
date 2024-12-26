@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fmard | Books</title>
+    <title>fmard | IMDb</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <script src="../scripts/header-footer.js" defer></script>
     <script src="../scripts/dark-mode-toggle.js"></script>
     <script src="../scripts/fetch-imdb.js"></script>
+    <script src="../scripts/papaparse.min.js"></script>
   </head>
   <body>
     <div id="header-container"></div>
@@ -30,6 +31,7 @@
         <p style="margin-top: 20px; font-weight: bold">
           Every Movie and TV Show I've watched:
         </p>
+        <p style="margin-top: 5px">(in a descending personal ratings order)</p>
         <div id="imdb-titles"></div>
       </section>
     </div>
