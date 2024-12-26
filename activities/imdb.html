@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fmard | Books</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <script src="../scripts/header-footer.js" defer></script>
+    <script src="../scripts/dark-mode-toggle.js"></script>
+    <script src="../scripts/fetch-imdb.js"></script>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <!-- Header will be injected here -->
+
+    <!-- div "content" here, so that it takes at least 100% of page height -->
+    <div id="content">
+      <section id="imdb">
+        <h2>IMDb</h2>
+        <p>
+          (I'm fetching the below information from the
+          <a
+            href="https://www.imdb.com/user/ur89250642/ratings/?sort=top_rated%2Cdesc"
+            target="_blank"
+            >IMDb</a
+          >
+          website.)
+        </p>
+        <p style="margin-top: 20px; font-weight: bold">
+          Every Movie and TV Show I've watched:
+        </p>
+        <div id="imdb-titles"></div>
+      </section>
+    </div>
+
+    <div id="footer-container"></div>
+    <!-- Footer will be injected here -->
+  </body>
+</html>

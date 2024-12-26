@@ -440,7 +440,7 @@ footer a:hover {
 }
 
 /* Average Rating container */
-.average-rating {
+.rating {
   font-weight: normal;
   display: flex;
   flex-direction: column; /* Stack rating number and progress bar vertically */

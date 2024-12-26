@@ -53,14 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Display books on the page
   function displayBooks(books, container) {
     books.forEach((book) => {
-      // console.log(book);
+      console.log(book);
       const bookElement = document.createElement("div");
       bookElement.classList.add("book");
 
-      // Extract average rating, image, and author from the book's content
+      // Extract average rating, image, author, and my rating from the book's content
       const avgRating = extractAverageRatingFromContent(book.content);
       const imageUrl = extractImageFromContent(book.content);
       const author = extractAuthorFromContent(book.content);
+      const myRating = extractMyRatingFromContent(book.content);
 
       // Create an anchor tag for the book
       const bookLink = document.createElement("a");
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bookLink.innerHTML = `
           <img src="${imageUrl}" alt="${book.title}" class="book-image" />
           <p class="book-title">${book.title}</p>
-          <div class="average-rating">
+          <div class="rating">
               <p>Average Rating: </p>
               <p class="rating-number">${avgRating}</p>
               <div class="progress-bar-container">
@@ -80,6 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 (avgRating / 5) * 100
               }%"></div>
               </div>
+          </div>
+          <div class="rating">
+              <p>My Rating: </p>
+              <p class="rating-number">${myRating}</p>
           </div>
           <p class="book-author">By ${author}</p>
           `;
@@ -111,5 +116,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Use a regex to extract the author's name from the content
     const authorMatch = content.match(/author:\s*([^<]+)/i);
     return authorMatch ? authorMatch[1].trim() : "Unknown Author"; // Return the author's name or "Unknown Author" if not found
+  }
+
+  // Function to extract "My Rating" from the content
+  function extractMyRatingFromContent(content) {
+    // Use a regex to find all occurrences of "rating: X"
+    const allRatings = content.match(/rating:\s*(\d+)/gi);
+
+    // Return the second match if it exists, otherwise return "N/A"
+    if (allRatings && allRatings.length >= 2) {
+      const myRatingMatch = allRatings[1].match(/rating:\s*(\d+)/i);
+      return myRatingMatch ? `${myRatingMatch[1]}` : "N/A";
+    }
+
+    return "N/A"; // Default to "N/A" if no valid second match is found
   }
 });
