@@ -102,6 +102,13 @@ body.dark-mode .home-btn {
   color: #333;
 }
 
+/* Dark mode for imdb rating table header */
+body.dark-mode .rating-table th {
+  background-color: #2a2a2a; /* Dark background for dark mode */
+  color: #e0e0e0; /* Light text color for contrast */
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+}
+
 /* Home Button (+ ^^ for dark mode) */
 .home-btn {
   position: absolute;
@@ -473,62 +480,56 @@ footer a:hover {
 
 /* CSS for IMDb titles */
 
-/* Movie list container */
-#imdb-titles {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Basic table styling */
+.rating-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-/* Styling for individual movie items */
-.movie-item {
-  /* background-color: #a600ff36; */
-  /* opacity: 0.6; */
+.rating-table th,
+.rating-table td {
   border: 1px solid #ddd;
-  padding: 15px;
-  /* margin: 10px; */
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.3s;
+  padding: 8px;
+  text-align: center;
 }
 
-/* Movie item hover effect */
-.movie-item:hover {
-  transform: scale(1.01);
+.rating-table th {
+  font-weight: bold;
+  background-color: #f2f2f2;
 }
 
-/* The clickable movie div */
+.rating-table td {
+  vertical-align: top;
+  max-width: 200px;
+}
+
+.movie-item {
+  margin: 10px 0;
+}
+
 .movie-link {
   text-decoration: none;
   color: inherit;
 }
 
-/* Styling for each movie detail */
-.imdb-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
-  /* background-color: purple; */
+.movie-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* Styling for rows in the movie list */
-.imdb-title,
-.imdb-title-type,
-.imdb-year,
-.imdb-rating,
-.imdb-genres,
-.imdb-your-rating,
-.imdb-directors {
-  display: inline-block;
-  width: 30%;
-  vertical-align: top;
+/* Ensure that the movies are aligned properly */
+.rating-table td {
+  width: 20%; /* Each column takes 20% of the width */
 }
 
-.imdb-title {
-  font-weight: bold;
+@media (max-width: 600px) {
+  .rating-table td {
+    width: 100%;
+    padding: 4px;
+  }
 }
-
-/*.imdb-your-rating {
-}*/
 
 /* Responsive design: adjust layout for smaller screens */
 @media (max-width: 768px) {

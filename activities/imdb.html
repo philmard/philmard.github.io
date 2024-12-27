@@ -15,7 +15,6 @@
     <div id="header-container"></div>
     <!-- Header will be injected here -->
 
-    <!-- div "content" here, so that it takes at least 100% of page height -->
     <div id="content">
       <section id="imdb">
         <h2>IMDb</h2>
@@ -28,11 +27,24 @@
           >
           website.)
         </p>
+        <img
+          src="/images/imdb/imdb_barplot.png"
+          alt="IMDb Barplot Image"
+          style="
+            max-width: 100%;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+          "
+        />
         <p style="margin-top: 20px; font-weight: bold">
           Every Movie and TV Show I've watched:
         </p>
-        <p style="margin-top: 5px">(in a descending personal ratings order)</p>
+        <p style="margin-top: 5px">(Grouped by personal ratings)</p>
         <div id="imdb-titles"></div>
+        <!-- This div will be replaced by the table -->
       </section>
     </div>
 
