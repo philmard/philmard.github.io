@@ -16,8 +16,8 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #faf9f6;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 200px;
+  padding-right: 200px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -216,7 +216,7 @@ header p {
   background: #fff;
   padding: 15px;
   min-width: 250px; /* Minimum width for each activity */
-  max-width: 300px; /* Optional: maximum width */
+  max-width: 250px; /* Maximum width */
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex-shrink: 0; /* Prevent items from shrinking */
@@ -234,9 +234,9 @@ header p {
 /* Align the image to the center */
 .activity img {
   display: block;
-  margin: 10px auto 10px; /* Center the image and add margin below */
-  width: 250px; /* Set a fixed width */
-  height: 250px; /* Set a fixed height */
+  margin: 0 auto 10px; /* Center the image and add margin below */
+  width: 220px; /* Set a fixed width */
+  height: 220px; /* Set a fixed height */
   object-fit: cover; /* Crop the image to fill the box */
   border-radius: 5px;
 }
