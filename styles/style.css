@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* Body styles */
 /* Light mode (default) styles */
 
@@ -24,6 +35,13 @@ body {
 
 body a {
   color: #333;
+}
+
+::selection {
+  background: #4800ff;
+  text-decoration: underline;
+  text-decoration-color: purple;
+  color: inherit; /* Keeps text color unchanged */
 }
 
 /* Main content area (everything above the footer) */
@@ -131,12 +149,12 @@ header {
 
 header h1 {
   font-size: 2.5em;
-  color: #333;
+  color: #ffffff;
 }
 
 header p {
   font-size: 1.1em;
-  color: #666;
+  color: #a6a6a6;
 }
 
 /* Projects section styles */
@@ -153,11 +171,11 @@ header p {
 #projects h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #5e5e5e;
+  color: #a6a6a6;
 }
 
 .project {
-  background: #fff;
+  background: #e6e6fa;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -165,7 +183,7 @@ header p {
 }
 
 .project:hover {
-  background-color: #f1f1f1;
+  background-color: #c5cbe3;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -190,7 +208,7 @@ header p {
 #other-activities h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #5e5e5e;
+  color: #a6a6a6;
 }
 
 .carousel-container {
@@ -213,7 +231,7 @@ header p {
 }
 
 .activity {
-  background: #fff;
+  background: #e6e6fa;
   padding: 15px;
   min-width: 250px; /* Minimum width for each activity */
   max-width: 250px; /* Maximum width */
@@ -227,7 +245,7 @@ header p {
 }
 
 .activity:hover {
-  background-color: #f1f1f1;
+  background-color: #c5cbe3;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -295,16 +313,16 @@ footer {
 
 footer h2 {
   font-size: 1.5em;
-  color: #333;
+  color: #ffffff;
 }
 
 footer p {
   font-size: 1em;
-  color: #666;
+  color: #aaaaaa;
 }
 
 footer a {
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
 }
 
