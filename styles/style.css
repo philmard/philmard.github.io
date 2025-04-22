@@ -5,18 +5,8 @@
   box-sizing: border-box;
 }
 
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none;
-}
-
 /* Body styles */
+/* Light mode (default) styles */
 
 body {
   min-height: 100vh; /* body -> 100vh -> Ensures footer is at the bottom */
@@ -24,8 +14,8 @@ body {
   flex-direction: column;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: rgb(205, 205, 205);
-  background-color: #121212;
+  color: #333;
+  background-color: #faf9f6;
   padding-left: 200px;
   padding-right: 200px;
   padding-top: 20px;
@@ -33,14 +23,7 @@ body {
 }
 
 body a {
-  color: #bbb;
-}
-
-::selection {
-  background: #4800ff;
-  text-decoration: underline;
-  text-decoration-color: purple;
-  color: inherit; /* Keeps text color unchanged */
+  color: #333;
 }
 
 /* Main content area (everything above the footer) */
@@ -49,11 +32,84 @@ body a {
   box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
 
+/* Dark mode styles */
+body.dark-mode {
+  color: #ddd;
+  background-color: #121212;
+}
+
+body.dark-mode header h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #f1f1f1;
+}
+
+body.dark-mode .project {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .project:hover {
+  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .activity {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .activity:hover {
+  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Image styling for dark mode */
-img {
+body.dark-mode img {
   filter: brightness(0.9); /* Dimming level of imgs */
 }
 
+body.dark-mode footer a {
+  color: #bbb;
+}
+
+body.dark-mode a {
+  color: #bbb;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; /* high z, so that it stays on top of images */
+  max-width: 35px;
+  display: flex; /* Center content inside */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+body.dark-mode .toggle-btn,
+body.dark-mode .home-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* Dark mode for imdb rating table header */
+body.dark-mode .rating-table th {
+  background-color: #2a2a2a; /* Dark background for dark mode */
+  color: #e0e0e0; /* Light text color for contrast */
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+}
+
+/* Home Button (+ ^^ for dark mode) */
 .home-btn {
   position: absolute;
   top: 20px;
@@ -75,12 +131,12 @@ header {
 
 header h1 {
   font-size: 2.5em;
-  color: #ffffff;
+  color: #333;
 }
 
 header p {
   font-size: 1.1em;
-  color: #a6a6a6;
+  color: #666;
 }
 
 /* Projects section styles */
@@ -97,26 +153,25 @@ header p {
 #projects h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #a6a6a6;
+  color: #5e5e5e;
 }
 
 .project {
+  background: #fff;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .project:hover {
-  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  background-color: #f1f1f1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .project h3 {
   font-size: 1.4em;
-  color: #f1f1f1;
+  color: #333;
 }
 
 .project p {
@@ -135,7 +190,7 @@ header p {
 #other-activities h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #a6a6a6;
+  color: #5e5e5e;
 }
 
 .carousel-container {
@@ -158,6 +213,7 @@ header p {
 }
 
 .activity {
+  background: #fff;
   padding: 15px;
   min-width: 250px; /* Minimum width for each activity */
   max-width: 250px; /* Maximum width */
@@ -168,13 +224,10 @@ header p {
   display: flex;
   flex-direction: column; /* Stack children (image, h3, p) vertically */
   height: 100%;
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
 .activity:hover {
-  background-color: #333; /* Darker shade for dimming effect in dark mode */
+  background-color: #f1f1f1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -190,7 +243,7 @@ header p {
 
 .activity h3 {
   font-size: 1.4em;
-  color: #f1f1f1;
+  color: #333;
 }
 
 .activity p {
@@ -242,16 +295,16 @@ footer {
 
 footer h2 {
   font-size: 1.5em;
-  color: #ffffff;
+  color: #333;
 }
 
 footer p {
   font-size: 1em;
-  color: #aaaaaa;
+  color: #666;
 }
 
 footer a {
-  color: #ffffff;
+  color: #333;
   text-decoration: none;
 }
 
@@ -443,9 +496,7 @@ footer a:hover {
 
 .rating-table th {
   font-weight: bold;
-  background-color: #2a2a2a; /* Dark background for dark mode */
-  color: #e0e0e0; /* Light text color for contrast */
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+  background-color: #f2f2f2;
 }
 
 .rating-table td {
