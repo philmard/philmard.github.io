@@ -26,6 +26,12 @@ body a {
   color: #333;
 }
 
+::selection {
+  background: #4800ff;
+  text-decoration: underline;
+  color: white;
+}
+
 /* Main content area (everything above the footer) */
 #content {
   flex-grow: 1;
