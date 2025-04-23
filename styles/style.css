@@ -19,12 +19,6 @@ body {
   padding: 20px 20px; /* top-bottom left-right */
 }
 
-@media (min-width: 660px) {
-  body {
-    padding: 20px 200px; /* top-bottom left-right */
-  }
-}
-
 body a {
   color: #333;
 }
@@ -285,11 +279,11 @@ header p {
 }
 
 .carousel-btn.left {
-  left: -40px;
+  left: 5px;
 }
 
 .carousel-btn.right {
-  right: -40px;
+  right: 5px;
 }
 
 .carousel-btn:hover {
@@ -552,5 +546,18 @@ footer a:hover {
   .post {
     width: 100%; /* Full width on extremely small screens */
     height: 200px; /* Further reduce height */
+  }
+}
+
+@media (min-width: 850px) {
+  body {
+    padding: 20px 200px; /* top-bottom left-right */
+  }
+  .carousel-btn.left {
+    left: -40px;
+  }
+
+  .carousel-btn.right {
+    right: -40px;
   }
 }
