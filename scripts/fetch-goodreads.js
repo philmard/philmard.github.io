@@ -53,46 +53,59 @@ document.addEventListener("DOMContentLoaded", function () {
   // Display books on the page
   function displayBooks(books, container) {
     books.forEach((book) => {
-      console.log(book);
       const bookElement = document.createElement("div");
       bookElement.classList.add("book");
 
-      // Extract average rating, image, author, and my rating from the book's content
       const avgRating = extractAverageRatingFromContent(book.content);
       const imageUrl = extractImageFromContent(book.content);
       const author = extractAuthorFromContent(book.content);
       const myRating = extractMyRatingFromContent(book.content);
 
-      // Create an anchor tag for the book
       const bookLink = document.createElement("a");
       bookLink.href = book.link;
       bookLink.target = "_blank";
       bookLink.classList.add("book-link");
 
-      // Add content inside the anchor tag
-      bookLink.innerHTML = `
-          <img src="${imageUrl}" alt="${book.title}" class="book-image" />
-          <p class="book-title">${book.title}</p>
-          <div class="rating">
-              <p>Average Rating: </p>
-              <p class="rating-number">${avgRating}</p>
-              <div class="progress-bar-container">
-              <div class="progress-bar" style="width: ${
-                (avgRating / 5) * 100
-              }%"></div>
-              </div>
-          </div>
-          <div class="rating">
-              <p>My Rating: </p>
-              <p class="rating-number">${myRating}</p>
-          </div>
-          <p class="book-author">By ${author}</p>
-          `;
+      // Image column
+      const img = document.createElement("img");
+      img.src = imageUrl;
+      img.alt = book.title;
+      img.classList.add("book-image");
 
-      // Append the anchor tag to the book element
+      // Details column
+      const details = document.createElement("div");
+      details.classList.add("book-details");
+
+      const title = document.createElement("p");
+      title.classList.add("book-title");
+      title.textContent = book.title;
+
+      const meta = document.createElement("div");
+      meta.classList.add("book-meta");
+      meta.innerHTML = `
+      <div class="rating">
+        <p>Average Rating:</p>
+        <p class="rating-number">${avgRating}</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: ${
+            (avgRating / 5) * 100
+          }%"></div>
+        </div>
+      </div>
+      <div class="rating">
+        <p>My Rating:</p>
+        <p class="rating-number">${myRating}</p>
+      </div>
+      <p class="book-author">By ${author}</p>
+    `;
+
+      details.appendChild(title);
+      details.appendChild(meta);
+
+      bookLink.appendChild(img);
+      bookLink.appendChild(details);
+
       bookElement.appendChild(bookLink);
-
-      // Append the book to the appropriate container
       container.appendChild(bookElement);
     });
   }
