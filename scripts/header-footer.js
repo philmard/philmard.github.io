@@ -3,10 +3,8 @@ function loadHeader() {
   const headerContent = `
       <!-- Header Section -->
       <header>
-        <!-- Favicon Image (icon) -->
-        <img src="/images/favicon.ico" alt="Favicon" class="favicon" />
         <h1>Filippos Marntirosian</h1>
-        <p>Student at National Technical University of Athens</p>
+        <p>Software Engineer, National Technical University of Athens</p>
         <!-- Dark Mode Toggle Button -->
         <button class="toggle-btn" onclick="toggleDarkMode()">☾</button>
         <button class="home-btn" onclick="redirectToIndex()">Home</button>
