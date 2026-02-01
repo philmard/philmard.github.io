@@ -17,6 +17,21 @@ body {
   color: #333;
   background-color: #faf9f6;
   padding: 20px 20px; /* top-bottom left-right */
+  position: relative;
+}
+
+/* Background image as pseudo-element so it can be inverted */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/noisy_background.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 body a {
@@ -32,54 +47,113 @@ body a {
 /* Main content area (everything above the footer) */
 #content {
   flex-grow: 1;
-  box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Dark mode styles */
+/* Glass Button Styles */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 130deg;
+  inherits: false;
+}
+
+@property --s {
+  syntax: '<length>';
+  initial-value: -15px;
+  inherits: false;
+}
+
+.glass-button-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.glass-button-wrapper {
+  position: relative;
+  width: 8rem;
+  height: 4rem;
+  display: inline-block;
+  border-radius: 5rem;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.glass-button-wrapper:hover {
+  transform: rotateX(10deg) scale(0.9);
+}
+
+.glass-button-wrapper:hover .button-text {
+  --s: 2.5px;
+}
+
+.glass-button-wrapper:hover .glass-button {
+  --angle: 80deg;
+}
+
+.glass-button-wrapper:active {
+  transform: rotateX(20deg) scale(0.8);
+}
+
+.glass-button-wrapper:active .button-text {
+  --s: 20px;
+}
+
+.glass-button-wrapper:active .glass-button {
+  --angle: 30deg;
+}
+
+.glass-button {
+  width: inherit;
+  height: inherit;
+  padding: 1px;
+  border: none;
+  border-radius: inherit;
+  background: linear-gradient(var(--angle), black, rgba(250, 250, 250, 0.5) 20% 80%, black);
+  box-sizing: border-box;
+  background-clip: border-box;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) padding-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: --angle 0.5s ease;
+  cursor: pointer;
+}
+
+.button-text {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #222;
+  z-index: -1;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    inset 0 0 4px 2px rgba(250, 250, 250, 1),
+    inset 0 0 4px 8px rgba(250, 250, 250, 0.3),
+    inset var(--s) var(--s) 20px 0px rgba(255, 255, 255, 0.3),
+    inset 0 20px 15px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  transition: --s 0.2s ease;
+}
+
+.glass-effect {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background: transparent;
+  filter: url(#liquid-distortion) contrast(1.5);
+  backdrop-filter: blur(1px);}
+
+/* Dark mode styles - invert all colors (including images) */
 body.dark-mode {
-  color: #ddd;
-  background-color: #121212;
-}
-
-body.dark-mode header h1,
-body.dark-mode h2,
-body.dark-mode h3 {
-  color: #f1f1f1;
-}
-
-body.dark-mode .project {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .project:hover {
-  background-color: #333; /* Darker shade for dimming effect in dark mode */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode .activity {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .activity:hover {
-  background-color: #333; /* Darker shade for dimming effect in dark mode */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Image styling for dark mode */
-body.dark-mode img {
-  filter: brightness(0.9); /* Dimming level of imgs */
-}
-
-body.dark-mode footer a {
-  color: #bbb;
-}
-
-body.dark-mode a {
-  color: #bbb;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 /* Toggle Button */
@@ -99,20 +173,8 @@ body.dark-mode a {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 }
-body.dark-mode .toggle-btn,
-body.dark-mode .home-btn {
-  background-color: #ddd;
-  color: #333;
-}
 
-/* Dark mode for imdb rating table header */
-body.dark-mode .rating-table th {
-  background-color: #2a2a2a; /* Dark background for dark mode */
-  color: #e0e0e0; /* Light text color for contrast */
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
-}
-
-/* Home Button (+ ^^ for dark mode) */
+/* Home Button */
 .home-btn {
   position: absolute;
   top: 20px;
@@ -200,10 +262,6 @@ header p {
 
 .repo-star-icon path {
   fill: currentColor;
-}
-
-body.dark-mode .repo-stars {
-  color: #fff;
 }
 
 .project p {
@@ -327,7 +385,7 @@ footer {
 
 footer h2 {
   font-size: 1.5em;
-  color: #333;
+  color: #f1f1f1;
 }
 
 footer p {
@@ -336,7 +394,7 @@ footer p {
 }
 
 footer a {
-  color: #333;
+  color: #bbb;
   text-decoration: none;
 }
 

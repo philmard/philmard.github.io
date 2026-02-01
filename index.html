@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fmard | Portfolio</title>
+    <title>fm</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <script src="scripts/scroll-carousel.js"></script>
@@ -29,98 +29,25 @@
     <div id="header-container"></div>
     <!-- Header will be injected here -->
 
-    <!-- div "content" here, so that it takes at least 100% of page height (so that footer is at bottom) -->
     <div id="content">
-      <!-- Projects Section -->
-      <section id="projects">
-        <h2>Personal Projects</h2>
-        <div id="personal-repo-container"></div>
-        <h2>University Projects</h2>
-        <div id="university-repo-container"></div>
-      </section>
-
-      <!-- Other Activities Section -->
-      <section id="other-activities">
-        <h2>Other Activities</h2>
-        <div class="carousel-container">
-          <!-- Left Arrow Button -->
-          <button class="carousel-btn left" onclick="scrollCarousel(-1)">
-            &#10094;
-          </button>
-          <!-- Container for hardcoded activities -->
-          <div id="activity-container">
-            <a href="activities/rubiks-cube.html" class="activity-link">
-              <div class="activity">
-                <img src="/images/rubiks/rubiks.jpg" alt="Rubiks img" />
-                <h3>Rubik's Cube</h3>
-                <p>
-                  I've attended various Rubik's Cube competitions in Greece!
-                  (finished in 5th place twice) Unofficial PB: 7.20 seconds
-                </p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a>
-            <a href="activities/league.html" class="activity-link">
-              <div class="activity">
-                <img
-                  src="/images/league/challenger_banner.png"
-                  alt="League img"
-                />
-                <h3>League of Legends</h3>
-                <p>
-                  I've peaked top 0.01% (Challenger) in famous team-based video
-                  game! (Season 11)
-                </p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a>
-            <a href="activities/goodreads.html" class="activity-link">
-              <div class="activity">
-                <img
-                  src="/images/goodreads/goodreads.jpg"
-                  alt="Goodreads img"
-                />
-                <h3>Goodreads</h3>
-                <p>I love reading Books in my spare time!</p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a>
-            <a href="activities/imdb.html" class="activity-link">
-              <div class="activity">
-                <img src="/images/imdb/imdb.jpg" alt="Imdb img" />
-                <h3>IMDb</h3>
-                <p>
-                  All the Movies/Series I've watched and my personal Ratings!
-                </p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a>
-            <!-- <a href="activities/medium.html" class="activity-link">
-              <div class="activity">
-                <img src="/images/medium/medium.jpeg" alt="Medium img" />
-                <h3>Medium</h3>
-                <p>I've written some posts on Medium on various topics.</p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a> -->
-            <a href="activities/typeracer.html" class="activity-link">
-              <div class="activity">
-                <img
-                  src="/images/typeracer/typeracer.webp"
-                  alt="Typeracer img"
-                />
-                <h3>Typeracer</h3>
-                <p>Rank (WPM percentile): 96.1% in Typeracer!</p>
-                <p style="text-decoration: underline">Click to Read More</p>
-              </div>
-            </a>
-          </div>
-          <!-- Right Arrow Button -->
-          <button class="carousel-btn right" onclick="scrollCarousel(1)">
-            &#10095;
-          </button>
+      <!-- Glass Button -->
+      <a href="https://www.linkedin.com/in/filippos-marntirosian" class="glass-button-link">
+        <div class="glass-button-wrapper">
+          <button class="glass-button"></button>
+          <span class="button-text">Contact</span>
+          <span class="glass-effect"></span>
         </div>
-      </section>
+      </a>
+
+      <!-- SVG Filter for glass effect -->
+      <svg width="0" height="0" style="position: absolute;">
+        <defs>
+          <filter id="liquid-distortion">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.03" numOctaves="1" seed="0" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
     </div>
     <!-- Contact Section -->
     <div id="footer-container"></div>

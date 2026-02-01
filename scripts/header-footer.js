@@ -4,10 +4,9 @@ function loadHeader() {
       <!-- Header Section -->
       <header>
         <h1>Filippos Marntirosian</h1>
-        <p>Software Engineer, National Technical University of Athens</p>
+        <p>Software Engineer | Blue Functor</p>
         <!-- Dark Mode Toggle Button -->
         <button class="toggle-btn" onclick="toggleDarkMode()">☾</button>
-        <button class="home-btn" onclick="redirectToIndex()">Home</button>
       </header>
     `;
   document.getElementById("header-container").innerHTML = headerContent;
@@ -22,9 +21,7 @@ function redirectToIndex() {
 function loadFooter() {
   const footerContent = `
       <footer>
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:philipmardir@gmail.com">philipmardir@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/philmard">github.com/philmard</a></p>
+        <p>[2002-2026]</p>
       </footer>
     `;
   document.getElementById("footer-container").innerHTML = footerContent;

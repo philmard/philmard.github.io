@@ -28,7 +28,9 @@ async function fetchRepositories() {
         repo.name !== "theme-store" &&
         repo.name !== "choice-web" &&
         repo.name !== "SDEverywhere" &&
-        repo.name !== "obsidian-plugin-static-cursor"
+        repo.name !== "obsidian-plugin-static-cursor" &&
+        repo.name !== "Youtube_Likes" &&
+        repo.name !== "FlarpyBlorb",
     );
 
     const universityRepoNames = new Set([
