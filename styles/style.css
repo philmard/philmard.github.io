@@ -40,7 +40,6 @@ body a {
 
 ::selection {
   background: #4800ff;
-  text-decoration: underline;
   color: white;
 }
 
